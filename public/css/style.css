@@ -1,0 +1,29 @@
+body{
+    background-color: aquamarine; 
+    /* background-image: url(book_hon_no_mushi_woman_bug.png); */
+}
+
+header h1{
+    font-size: 100px;
+    text-align:center ;
+}
+
+header h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+}
+
+.signout{
+    text-align: center;
+}
+
+.post_memory{
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>MY READING RECORD</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <% if session[:user] %>
+        <form action="/signout" method="post" class="signout">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="サインアウト">
+        </form>
+    <% end %>
+    <div class="container">
+        <form action="/posts" method="post" class="post"  enctype="multipart/form-data">
+            <div>
+                <label for="title">題名: </label>
+                <input type="text" name="title">
+            </div>
+            <div>
+                <label for="content">感想: </label>
+                <textarea name="content" cols=50 rows=10></textarea>
+            </div>
+            <form action="/form" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="img">写真: </label>
+                <input type="file" name="img">
+            </div>
+            <input type="submit" value="投稿">
+        </form>
+    </div>
+</body>
+
+<div class="post_memory">
+    <% @posts.each do |post| %>
+        <h1><%= post['title'] %></h1>
+        <p><%= post['content'] %></p>
+        <img src="/images/<%= post['image_path'] %>">
+        <p>✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨</p>
+    <% end %>
+</div>
